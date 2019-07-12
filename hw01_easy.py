@@ -14,11 +14,7 @@ for i in num:
 # Решение задачи с помощью цикла while
 num_2 = int(input('Введите любое число: '))
 while num_2 >= 1:
-    if 1 <= num_2 < 10:
-        print(num_2)
-        break
-    else:
-        print(num_2 % 10)
+    print(num_2 % 10)
     num_2 = int(num_2 / 10)
 
 # Задача-2: Исходные значения двух переменных запросить у пользователя.
