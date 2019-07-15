@@ -81,7 +81,20 @@ else:
 N = int(input('Введите номер комнаты: '))
 square = 1  # Номер квадрата
 room_square = 1  # Номер последней комнаты в квадрате
-while N >= room_square:
+while N > room_square:  # Определяем квадрат, в котором находится комната
     square += 1
     room_square += square ** 2
-print(square, room_square)
+room_list = []  # Список из комнат, входящих в полученный квадрат
+for v in range(room_square - square ** 2 + 1, room_square + 1):  # Заполняем список комнатами
+    room_list.append(v)
+room_list_2 = []  # Список, в котором будут списки из комнаты по этажам
+floor_list = []  # Список комнат по этажам
+while N not in floor_list:  # Создаем список со списками этажей с комнатами
+    floor_list = []
+    room_list_2.append(floor_list)
+    for i in range(square):
+        n = room_list.pop(0)
+        floor_list.append(n)
+floor = (square - 1) * square / 2 + len(room_list_2)  # Вначале складываем высоту всех квадратов и добавляем этажи
+print('Заданная комната находится на этаже №', int(floor))
+print('Заданная комната', floor_list.index(N) + 1, '-я слева')
