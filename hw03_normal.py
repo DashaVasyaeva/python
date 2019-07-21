@@ -63,8 +63,10 @@ def parallelogram(*args):
         a.append(i)
     a.sort()
     print('Координаты точек: ', a)
-    if a[0][0]+a[3][0] == a[1][0]+a[2][0] and a[0][1]+a[3][1] == a[1][1]+a[2][1]:
+    if a[0][0] + a[3][0] == a[1][0] +a[2][0] and a[0][1] + a[3][1] == a[1][1] + a[2][1]:
         return True
+    else:
+        return False
 
 
 a1 = [-3, -2]
