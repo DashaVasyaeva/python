@@ -22,9 +22,9 @@ line = 'mtMmEZUOmcqWiryMQhhTxqKdSTKCYEJlEZCsGAMkgAYEOmHBSQsSUHKvSfbmxULaysmNO' \
        'qHFjvihuNGEEFsfnMXTfptvIOlhKhyYwxLnqOsBdGvnuyEZIheApQGOXWeXoLWiDQNJFa' \
        'XiUWgsKQrDOeZoNlZNRvHnLgCmysUeKnVJXPFIzvdDyleXylnKBfLCjLHntltignbQoiQ' \
        'zTYwZAiRwycdlHfyHNGmkNqSwXUrxGc' \
- \
+
 #  1-ый способ
-pattern = '([a-z]+)[A-Z]+'
+pattern = '[a-z]+'
 print(re.findall(pattern, line))
 
 #  2-ой способ
@@ -88,3 +88,26 @@ with open('number.txt', 'w+') as file:
 # которая повторяется, а не набор повторяющихся цифр.
 # В итоге хотела получить что-то вроде ['3333', '11', '88888' и т.д.]
 # Если это возможно, буду благодарна за подсказку))
+# Решение без re:
+    number_list = list(number)
+    start_index = 1
+    repeating_element = ''
+    if number_list[0] == number_list[1]:
+        repeating_element += str(number_list[0])
+    for i in number_list[1:-1]:
+        if i == number_list[start_index + 1] or i == number_list[start_index - 1]:
+            repeating_element += str(i)
+            if i != number_list[start_index + 1]:
+                repeating_element += ' '
+        start_index += 1
+    if number_list[-1] == number_list[-2]:
+        repeating_element += str(number_list[-1])
+    repeating_element_list = repeating_element.split(' ')
+    c = 0
+    finish_list = []
+    for i in repeating_element_list:
+        if len(i) > c:
+            c = len(i)
+            finish_list.append(i)
+    print('Максимальная последовательность: ', finish_list[-1])
+    
