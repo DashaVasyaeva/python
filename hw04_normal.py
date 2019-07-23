@@ -110,4 +110,22 @@ with open('number.txt', 'w+') as file:
             c = len(i)
             finish_list.append(i)
     print('Максимальная последовательность: ', finish_list[-1])
-    
+
+# Решение от преподавателя, нужно подумать
+# import re
+# import random
+# import os
+
+# def num_fill(name):
+# fill = ''
+# for i in range(2500):
+# fill += str(random.randint(0, 9))
+
+# with open(os.path.join(name), 'w', encoding='utf-8') as f:
+#     f.write(fill)
+
+# return fill
+# same = re.findall(r'0{2,}|1{2,}|2{2,}|3{2,}|4{2,}|5{2,}|6{2,}|7{2,}|8{2,}|9{2,}',
+# num_fill('2500.txt'))
+# max_same = [i for i in same if len(i) == len(max(same, key=len))]
+# print(f'Последовательности {sorted(same, key=len)}\nСамые длинные {max_same}')
